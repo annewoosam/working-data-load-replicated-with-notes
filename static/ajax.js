@@ -11,3 +11,16 @@ $('#get-template').on('submit', (evt) => {
     $('#createdon').html(res.createdon);
   });
 });
+
+// $('#get-checklist').on('submit', (evt) => {
+//   evt.preventDefault();
+
+//   const selectedId = $('#checklist-id').val();
+
+//   $.get(`/api/checklist/${selectedId}`, (res) => {
+//     $('#templatename').html(res.templatename);
+//     $('#timeframe').html(res.timeframe);
+//     $('#whofor').html(res.whofor);
+//   });
+// });
+

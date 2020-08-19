@@ -24,33 +24,33 @@ class Template(db.Model):
         return f'<Template template_id={self.template_id} templatename={self.templatename}>'
 
 
-class Animal(db.Model):
-    """Data model for an animal."""
+# class Checklist(db.Model):
+#     """Data model for an animal."""
 
-    __tablename__ = 'animals'
+#     __tablename__ = 'checklists'
 
-    animal_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(50), nullable=False)
-    animal_species = db.Column(db.String(25), nullable=False)
-    birth_year = db.Column(db.Integer, nullable=True)
+#     checklist_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+#     templatename = db.Column(db.String(50), nullable=False)
+#     timeframe = db.Column(db.Date(), nullable=False)
+#     whofor = db.Column(db.String(), nullable=False)
 
-    template_id = db.Column(db.Integer,
-                         db.ForeignKey('templates.template_id'),
-                         nullable=False)
-    Template = db.relationship('Template', backref='animals')
+#     template_id = db.Column(db.Integer,
+#                          db.ForeignKey('templates.template_id'),
+#                          nullable=False)
+#     Template = db.relationship('Template', backref='checklists')
 
-    def __repr__(self):
-        """Provide helpful representation when printing."""
+#     def __repr__(self):
+#         """Provide helpful representation when printing."""
 
-        # Sometimes, to avoid messy concatenation, it's ok to have your string
-        # go past the 80-charcter line limit
-        return f'<Animal animal_id={self.animal_id} name={self.name}> animal_species={self.animal_species}'
+#         # Sometimes, to avoid messy concatenation, it's ok to have your string
+#         # go past the 80-charcter line limit
+#         return f'<Checklist checklist_id={self.checklist_id} templatename={self.templatename}> whofor={self.whofor}'
 
 
 def connect_to_db(app):
     """Connect the database to our Flask app."""
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres:///animals'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres:///checklists'
     app.config['SQLALCHEMY_ECHO'] = False
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.app = app

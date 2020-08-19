@@ -34,25 +34,24 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: animals; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: checklists; Type: TABLE; Schema: public; Owner: vagrant
 --
 
-CREATE TABLE animals (
-	animal_id integer NOT NULL,
-	template_id integer NOT NULL,
-	name character varying(50) NOT NULL,
-	animal_species character varying(25) NOT NULL,
-	birth_year integer
+CREATE TABLE checklists (
+	checklist_id integer NOT NULL,
+	templatename character varying(50) NOT NULL,
+	timeframe date NOT NULL,
+	whofor character varying(50) NOT NULL
 );
 
 
-ALTER TABLE animals OWNER TO "vagrant";
+ALTER TABLE checklists OWNER TO "vagrant";
 
 --
--- Name: animals_animal_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: checklists_checklist_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
 --
 
-CREATE SEQUENCE animals_animal_id_seq
+CREATE SEQUENCE checklists_checklist_id_seq
 	START WITH 1
 	INCREMENT BY 1
 	NO MINVALUE
@@ -60,13 +59,13 @@ CREATE SEQUENCE animals_animal_id_seq
 	CACHE 1;
 
 
-ALTER TABLE animals_animal_id_seq OWNER TO "vagrant";
+ALTER TABLE checklists_checklist_id_seq OWNER TO "vagrant";
 
 --
--- Name: animals_animal_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: checklists_checklist_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
 --
 
-ALTER SEQUENCE animals_animal_id_seq OWNED BY animals.animal_id;
+ALTER SEQUENCE checklists_checklist_id_seq OWNED BY checklists.checklist_id;
 
 
 --
@@ -108,7 +107,7 @@ ALTER SEQUENCE templates_template_id_seq OWNED BY templates.template_id;
 -- Name: animal_id; Type: DEFAULT; Schema: public; Owner: vagrant
 --
 
-ALTER TABLE ONLY animals ALTER COLUMN animal_id SET DEFAULT nextval('animals_animal_id_seq'::regclass);
+ALTER TABLE ONLY checklists ALTER COLUMN checklist_id SET DEFAULT nextval('checklists_checklist_id_seq'::regclass);
 
 
 --
@@ -119,20 +118,19 @@ ALTER TABLE ONLY templates ALTER COLUMN template_id SET DEFAULT nextval('templat
 
 
 --
--- Data for Name: animals; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: checklists; Type: TABLE DATA; Schema: public; Owner: vagrant
 --
 
-COPY animals (animal_id, template_id, name, animal_species, birth_year) FROM stdin;
-1	1	Fluffy	cat	2010
-2	2	Squiggles	snake	2016
+COPY checklists (checklist_id, templatename, timeframe, whofor) FROM stdin;
+1	Compliance Testing	2020-08-08	ABC
+2	Client Guide	2020-08-08	ABC
 \.
 
-
 --
--- Name: animals_animal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: checklists_checklist_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
 --
 
-SELECT pg_catalog.setval('animals_animal_id_seq', 12, true);
+SELECT pg_catalog.setval('checklists_checklist_id_seq', 12, true);
 
 
 --
@@ -153,11 +151,11 @@ SELECT pg_catalog.setval('templates_template_id_seq', 5, true);
 
 
 --
--- Name: animals_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: checklists_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
 --
 
-ALTER TABLE ONLY animals
-	ADD CONSTRAINT animals_pkey PRIMARY KEY (animal_id);
+ALTER TABLE ONLY checklists
+	ADD CONSTRAINT checklists_pkey PRIMARY KEY (checklist_id);
 
 
 --
@@ -169,11 +167,11 @@ ALTER TABLE ONLY templates
 
 
 --
--- Name: animals_human_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: checklists_template_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
 --
 
-ALTER TABLE ONLY animals
-	ADD CONSTRAINT animals_human_id_fkey FOREIGN KEY (template_id) REFERENCES templates(template_id);
+-- ALTER TABLE ONLY checklists
+-- 	ADD CONSTRAINT checklists_templatename_fkey FOREIGN KEY (templatename) REFERENCES templates(templatename);
 
 
 --
