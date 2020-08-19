@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Checklists</title>
+    <title>Users</title>
     <link rel="stylesheet" href="/static/styles.css">
     <script
       src="https://code.jquery.com/jquery-3.4.1.js"
@@ -12,24 +12,24 @@
   </head>
   <body>
     <section id="description">
-      <h1>Checklists</h1>
+      <h1>Users</h1>
 
     </section>
 
-    <section id="select-checklist">
+    <section id="select-user">
       <h3>Select ID</h3>
 
       <p>
-        Select an ID number to view information about a particular template.
+        Select an ID number to view information about a particular User.
       </p>
 
-      <form id="get-checklist">
-        <label for="checklist-id">
+      <form id="get-user">
+        <label for="user-id">
           Select an ID number:
         </label>
-        <select id="checklist-id" name="checklist_id">
+        <select id="user-id" name="user_id">
           <option value="">Choose an ID</option>
-          {% for n in range(1, 3) %}
+          {% for n in range(1, 4) %}
          <!--  range is plus one from the highest number -->
             <option value="{{ n }}">{{ n }}</option>
           {% endfor %}
@@ -38,18 +38,18 @@
       </form>
     </section>
 
-    <section id="display-checklist">
-      <h3>Template Info</h3>
+    <section id="display-user">
+      <h3>User Info</h3>
 
       <dl>
-        <dt>Template Name</dt>
-        <dd id="templatename">Unknown</dd>
+        <dt>User Name</dt>
+        <dd id="username">Unknown</dd>
 
-        <dt>Timeframe</dt>
-        <dd id="timeframe">Unknown</dd>
+        <dt>Email</dt>
+        <dd id="email">Unknown</dd>
 
-        <dt>Who For</dt>
-        <dd id="whofor">Unknown</dd>
+        <dt>Role</dt>
+        <dd id="usertype">Unknown</dd>
       </dl>
     </section>
 
