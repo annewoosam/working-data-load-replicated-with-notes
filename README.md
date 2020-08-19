@@ -42,7 +42,7 @@ and troubleshoot any errors in database.sql if they arise.
 
 then rehash deletedb, createdb and psql users till done.
 
-Once there are no errors, you can psl users and use \dt and \d and then \q to dee teh tables, relationships, then quit.
+Once there are no errors, you can psql users and use \dt and \d and then \q to see the tables and relationships, then quit.
 
 After that you can run python3 server.py and launch your browser using localhost:5000.
 
