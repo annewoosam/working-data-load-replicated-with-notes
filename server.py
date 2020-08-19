@@ -1,6 +1,6 @@
 
 from flask import Flask, jsonify, render_template
-from model import connect_to_db, Template
+from model import connect_to_db, Checklist
 
 
 app = Flask(__name__)
@@ -13,21 +13,21 @@ def homepage():
     return render_template('index.html')
 
 
-@app.route('/api/template/<int:template_id>')
-def get_template(template_id):
-    """Return a template from the database as JSON."""
+@app.route('/api/checklist/<int:checklist_id>')
+def get_checklist(checklist_id):
+    """Return a checklist from the database as JSON."""
 
-    template = Template.query.get(template_id)
+    checklist = Checklist.query.get(checklist_id)
 
-    if template:
+    if checklist:
         return jsonify({'status': 'success',
-                        'template_id': template.template_id,
-                        'templatename': template.templatename,
-                        'createdby': template.createdby,
-                        'createdon': template.createdon})
+                        'checklist_id': checklist.checklist_id,
+                        'templatename': checklist.templatename,
+                        'timframe': checklist.timeframe,
+                        'whofor': checklist.whofor})
     else:
         return jsonify({'status': 'error',
-                        'message': 'No template found with that ID'})
+                        'message': 'No checklist found with that ID'})
 
 
 if __name__ == '__main__':

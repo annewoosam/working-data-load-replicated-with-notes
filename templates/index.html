@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Skills Assessment 5</title>
+    <title>Checklists</title>
     <link rel="stylesheet" href="/static/styles.css">
     <script
       src="https://code.jquery.com/jquery-3.4.1.js"
@@ -12,22 +12,22 @@
   </head>
   <body>
     <section id="description">
-      <h1>Templates</h1>
+      <h1>Checklists</h1>
 
     </section>
 
-    <section id="select-template">
+    <section id="select-checklist">
       <h3>Select ID</h3>
 
       <p>
         Select an ID number to view information about a particular template.
       </p>
 
-      <form id="get-template">
-        <label for="template-id">
+      <form id="get-checklist">
+        <label for="checklist-id">
           Select an ID number:
         </label>
-        <select id="template-id" name="template_id">
+        <select id="checklist-id" name="checklist_id">
           <option value="">Choose an ID</option>
           {% for n in range(1, 3) %}
          <!--  range is plus one from the highest number -->
@@ -38,18 +38,18 @@
       </form>
     </section>
 
-    <section id="display-template">
+    <section id="display-checklist">
       <h3>Template Info</h3>
 
       <dl>
         <dt>Template Name</dt>
         <dd id="templatename">Unknown</dd>
 
-        <dt>Created On</dt>
-        <dd id="createdby">Unknown</dd>
+        <dt>Timeframe</dt>
+        <dd id="timeframe">Unknown</dd>
 
-        <dt>Created On</dt>
-        <dd id="createdon">Unknown</dd>
+        <dt>Who For</dt>
+        <dd id="whofor">Unknown</dd>
       </dl>
     </section>
 
