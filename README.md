@@ -20,7 +20,7 @@ You can globally change fields in most code editors but be careful.
 
 For example, if you globally change user you will need to check that you have not lower-cased the model name in model.py or server.py or you will have issues.
 
-Also, there are some occasions, rare, but important that the plural is used rather than the singular. Changing user to suers or vice versa can cause issues. 
+Also, there are some occasions, rare, but important that the plural is used rather than the singular. Changing user to users or vice versa can cause issues. 
 
 Generally, reference to table names are plural and everything else is singular.
 
@@ -46,7 +46,7 @@ Once there are no errors, you can psql users and use \dt and \d and then \q to s
 
 After that you can run python3 server.py and launch your browser using localhost:5000.
 
-Use the inspect element feature and terminal error codes to troubleshoot any additional issues. generally the top and last errors on the web page
+Use the inspect element feature and terminal error codes to troubleshoot any additional issues. Generally the top and last errors on the web page
 will direct you where to start troubleshooting. You can also highlight the terms and error codes, right click and perform a web search.
 
 To exit the Flask server use CTRL C if using a universal keyboard. Fix your files. Reload server.py, reload/empty your browser cache. 
